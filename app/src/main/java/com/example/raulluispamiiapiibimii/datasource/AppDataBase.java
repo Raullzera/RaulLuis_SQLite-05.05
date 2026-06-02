@@ -1,5 +1,6 @@
 package com.example.raulluispamiiapiibimii.datasource;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -14,6 +15,7 @@ public class AppDataBase extends SQLiteOpenHelper {
     public static int version = 1;
 
     SQLiteDatabase db;
+
     public AppDataBase(Context context) {
         super(context, NAME, null, version);
         db = getWritableDatabase();
@@ -26,8 +28,19 @@ public class AppDataBase extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        Log.i(AppUtil.TAG,"Criando  tabela"+ ClienteDataModel.TABELA);
+        Log.i(AppUtil.TAG, "Criando  tabela" + ClienteDataModel.TABELA);
         db.execSQL(ClienteDataModel.criarTabela());
+    }
+
+    public boolean insert(String tabela, ContentValues dados) {
+        db = getWritableDatabase();
+        boolean retorno = false;
+        try {
+            retorno = db.insert(tabela, null, dados) > 0;
+        } catch (Exception e) {
+            retorno = false;
+        }
+        return retorno;
     }
 }
 

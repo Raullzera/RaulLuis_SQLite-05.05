@@ -1,6 +1,7 @@
 package com.example.raulluispamiiapiibimii.view;
 
 import android.os.Bundle;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +15,7 @@ import com.example.raulluispamiiapiibimii.model.Cliente;
 
 public class MainActivity extends AppCompatActivity {
     Clientecontroller clienteController;
+    Button btnCadastrarCliente;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +23,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         clienteController = new Clientecontroller(this);
+        btnCadastrarCliente = findViewById(R.id.btnCadastrarCliente);
+
+        btnCadastrarCliente.setOnClickListener(v->{
+            Cliente cliente = new Cliente();
+            cliente.setNome("Memphis Depay");
+            cliente.setEmail("memphisdepay@gmail.com");
+            cliente.setTelefone("(11) 989474673");
+        });
 
 
 
