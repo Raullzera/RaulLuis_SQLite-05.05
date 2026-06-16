@@ -1,5 +1,6 @@
 package com.example.raulluispamiiapiibimii.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
@@ -16,14 +17,18 @@ import com.example.raulluispamiiapiibimii.model.Cliente;
 public class MainActivity extends AppCompatActivity {
     Clientecontroller clienteController;
     Button btnCadastrarCliente;
+    Button alterar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        clienteController = new Clientecontroller(this);
-        btnCadastrarCliente = findViewById(R.id.btnCadastrarCliente);
+        alterar = findViewById(R.id.alterar);
+        alterar.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, AlterarClienteActivity.class);
+                });
+
 
         btnCadastrarCliente.setOnClickListener(v->{
             Cliente cliente = new Cliente();

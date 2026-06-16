@@ -8,10 +8,10 @@
     tools:context=".view.MainActivity">
 
     <Button
-        android:id="@+id/btnCadastrarCliente"
+        android:id="@+id/alterar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cadastrar Cliente"
+        android:text="Alterar Dados"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
